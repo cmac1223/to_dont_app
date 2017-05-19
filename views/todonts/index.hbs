@@ -1,0 +1,21 @@
+{{#if todonts.length}}
+  <h1> todonts </h1>
+  <br />
+  <ul>
+    {{#each todonts}}
+      <li>Description: <a href="/todonts/{{@index}}">{{description}}</a></li>
+      <li>{{location}}</li>
+      <li>Urgent: {{urgent}}</li>
+      <br/>
+      <div> <a href="/todonts/{{@index}}/edit" class="btn btn-deault">Edit Todont</div>
+      <form action="/todonts/{{@index}}?_method=DELETE" method="POST">
+      <input type="submit" value="DELETE" class="btn btn-danger"/>
+    </form>
+    <br/>
+    {{/each}}
+  </ul>
+{{else}}
+  <h1>You haven't added any todonts yet!  Click on the link below to add a new todo! </h1>
+{{/if}}
+
+<a class="btn btn-default" href="\todonts\new">Add a New Todont</a>
